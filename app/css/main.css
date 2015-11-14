@@ -4,48 +4,21 @@ body {
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
   color: white; }
 
-.blocks div {
-  border: 1px solid red; }
+.as-sortable-item,
+.as-sortable-placeholder {
+  display: inline-block;
+  width: 124px;
+  height: 110px;
+  float: left; }
 
-.ppiece1 {
-  position: absolute;
-  cursor: move;
-  background: url("http://www.gannett-cdn.com/-mm-/13ffa70795774f14fe8cae0f9d8e21bb6f6ad345/c=97-0-3544-2592&r=x513&c=680x510/local/-/media/2015/01/31/USATODAY/USATODAY/635583396491961824-C01-ALMOST-14-69943048.JPG") no-repeat;
-  width: 200px;
-  height: 200px;
-  background-position: 0 0;
-  background-size: 200% 200%;
-  margin: 0; }
-
-.ppiece2 {
-  position: absolute;
-  background: url("http://www.gannett-cdn.com/-mm-/13ffa70795774f14fe8cae0f9d8e21bb6f6ad345/c=97-0-3544-2592&r=x513&c=680x510/local/-/media/2015/01/31/USATODAY/USATODAY/635583396491961824-C01-ALMOST-14-69943048.JPG") no-repeat;
-  width: 200px;
-  height: 200px;
-  background-position: 0 100%;
-  background-size: 200% 200%; }
-
-.ppiece3 {
-  position: absolute;
-  background: url("http://www.gannett-cdn.com/-mm-/13ffa70795774f14fe8cae0f9d8e21bb6f6ad345/c=97-0-3544-2592&r=x513&c=680x510/local/-/media/2015/01/31/USATODAY/USATODAY/635583396491961824-C01-ALMOST-14-69943048.JPG") no-repeat;
-  width: 200px;
-  height: 200px;
-  background-position: 100% 0;
-  background-size: 200% 200%; }
-
-.ppiece4 {
-  position: absolute;
-  background: url("http://www.gannett-cdn.com/-mm-/13ffa70795774f14fe8cae0f9d8e21bb6f6ad345/c=97-0-3544-2592&r=x513&c=680x510/local/-/media/2015/01/31/USATODAY/USATODAY/635583396491961824-C01-ALMOST-14-69943048.JPG") no-repeat;
-  width: 200px;
-  height: 200px;
-  background-position: 100% 100%;
-  background-size: 200% 200%; }
-
-.container {
-  position: relative;
-  width: 1000px;
-  height: 400px;
-  background: red;
-  margin: 0 auto; }
+/*.sortable-row:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}*/
+#sortable-container {
+  display: inline-block; }
 
 /*# sourceMappingURL=main.css.map */

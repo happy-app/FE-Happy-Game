@@ -1,6 +1,11 @@
 // Put any @imports here
 // See Readme for a list of supported ones
 
+@import 'bourbon';
+@import 'neat';
+$mobile: new-breakpoint(max-width 600px 4);
+
+
 body {
   background: #e2ebf3;
 }
@@ -60,20 +65,27 @@ body {
 
 .as-sortable-item,
 .as-sortable-placeholder {
-    display: inline-block;
-    width: 124px;
-    height: 110px;
-    float: left;
+  @include span-columns(3);
+  @include omega(3n);
+  @include media($mobile) {
+    @include span-columns(3);
+    @include omega(3n);
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+    width: 200px;
+    height: 200px;
+    margin: 0;
 }
 
-/*.sortable-row:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}*/
 
 #sortable-container {
-    display: inline-block;
+    @include outer-container;
+    @include media($mobile) {
+      margin: 0 12%;
+      width: 90%;
+    }
+    margin: 0 auto;
+    width: 650px;
 }

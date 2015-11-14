@@ -1,3 +1,9 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 body {
   background: #e2ebf3; }
 
@@ -6,19 +12,55 @@ body {
 
 .as-sortable-item,
 .as-sortable-placeholder {
-  display: inline-block;
-  width: 124px;
-  height: 110px;
-  float: left; }
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%;
+  width: 200px;
+  height: 200px;
+  margin: 0; }
+  .as-sortable-item:last-child,
+  .as-sortable-placeholder:last-child {
+    margin-right: 0; }
+  .as-sortable-item:nth-child(3n),
+  .as-sortable-placeholder:nth-child(3n) {
+    margin-right: 0; }
+  .as-sortable-item:nth-child(3n+1),
+  .as-sortable-placeholder:nth-child(3n+1) {
+    clear: left; }
+  @media screen and (max-width: 600px) {
+    .as-sortable-item,
+    .as-sortable-placeholder {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 73.14426%;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto; }
+      .as-sortable-item:last-child,
+      .as-sortable-placeholder:last-child {
+        margin-right: 0; }
+      .as-sortable-item:nth-child(3n),
+      .as-sortable-placeholder:nth-child(3n) {
+        margin-right: 0; }
+      .as-sortable-item:nth-child(3n+1),
+      .as-sortable-placeholder:nth-child(3n+1) {
+        clear: left; } }
 
-/*.sortable-row:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}*/
 #sortable-container {
-  display: inline-block; }
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0 auto;
+  width: 650px; }
+  #sortable-container::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (max-width: 600px) {
+    #sortable-container {
+      margin: 0 12%;
+      width: 90%; } }
 
 /*# sourceMappingURL=main.css.map */

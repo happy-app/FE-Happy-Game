@@ -42,7 +42,27 @@ var _shuffleArray = require('shuffle-array');
 
 var _shuffleArray2 = _interopRequireDefault(_shuffleArray);
 
-var GameController2by2 = function GameController2by2($scope) {
+var GameController2by2 = function GameController2by2($scope, GameService) {
+  //  Grabbing and sending Image
+  // let addImage = function (obj, img){
+  //
+  //
+  // 			HAPP.config.headers['Content-Type'] =  undefined;
+  //
+  // 				var formData = new FormData();
+  // 				formData.append('property[profile]', img);
+  //
+  // 				$http({
+  // 					headers: heroku.config.headers,
+  // 					url: HAPP.URL + 'puzzles'
+  // 					method: 'POST',
+  // 					data: formData
+  // 				});
+  // 		};
+  //  Adding LeaderBoard
+  GameService.getLeaders().then(function (res) {
+    $scope.leaders = res.data.stats;
+  });
 
   var i;
   $scope.itemsList = {
@@ -115,12 +135,12 @@ var GameController2by2 = function GameController2by2($scope) {
   (0, _shuffleArray2["default"])($scope.itemsList.items1);
 };
 
-GameController2by2.$inject = ['$scope'];
+GameController2by2.$inject = ['$scope', 'GameService'];
 
 exports["default"] = GameController2by2;
 module.exports = exports["default"];
 
-},{"shuffle-array":16}],3:[function(require,module,exports){
+},{"shuffle-array":17}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -211,7 +231,7 @@ GameController5by5.$inject = ['$scope'];
 exports["default"] = GameController5by5;
 module.exports = exports["default"];
 
-},{"shuffle-array":16}],4:[function(require,module,exports){
+},{"shuffle-array":17}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -246,9 +266,47 @@ var _controllersGamecontroller5by5 = require('./controllers/gamecontroller5by5')
 
 var _controllersGamecontroller5by52 = _interopRequireDefault(_controllersGamecontroller5by5);
 
-_angular2['default'].module('app', ['ui.router', 'ngMaterial', 'as.sortable']).config(_config2['default']).controller('GameController2by2', _controllersGamecontroller2by22['default']).controller('GameController5by5', _controllersGamecontroller5by52['default']);
+//  Service Files
 
-},{"./config":1,"./controllers/gamecontroller2by2":2,"./controllers/gamecontroller5by5":3,"angular":13,"angular-animate":6,"angular-aria":8,"angular-material":10,"angular-ui-router":11,"ng-sortable":15}],5:[function(require,module,exports){
+var _servicesGameservice = require('./services/gameservice');
+
+var _servicesGameservice2 = _interopRequireDefault(_servicesGameservice);
+
+_angular2['default'].module('app', ['ui.router', 'ngMaterial', 'as.sortable']).constant('HAPP', {
+  URL: 'https://nameless-castle-3953.herokuapp.com'
+}).config(_config2['default']).controller('GameController2by2', _controllersGamecontroller2by22['default']).controller('GameController5by5', _controllersGamecontroller5by52['default']).service('GameService', _servicesGameservice2['default']);
+
+},{"./config":1,"./controllers/gamecontroller2by2":2,"./controllers/gamecontroller5by5":3,"./services/gameservice":5,"angular":14,"angular-animate":7,"angular-aria":9,"angular-material":11,"angular-ui-router":12,"ng-sortable":16}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var GameService = function GameService($http, HAPP) {
+
+  var url = HAPP.URL + '/games';
+
+  var checkAuth = function checkAuth() {
+    return true;
+  };
+  //  Getting LeaderBoard
+  this.getLeaders = function () {
+    if (checkAuth()) {
+      return $http({
+        url: url,
+        method: 'GET',
+        cache: true
+      });
+    }
+  };
+};
+
+GameService.$inject = ['$http', 'HAPP'];
+
+exports['default'] = GameService;
+module.exports = exports['default'];
+
+},{}],6:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -4178,11 +4236,11 @@ angular.module('ngAnimate', [])
 
 })(window, window.angular);
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 require('./angular-animate');
 module.exports = 'ngAnimate';
 
-},{"./angular-animate":5}],7:[function(require,module,exports){
+},{"./angular-animate":6}],8:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -4581,11 +4639,11 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 
 })(window, window.angular);
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 require('./angular-aria');
 module.exports = 'ngAria';
 
-},{"./angular-aria":7}],9:[function(require,module,exports){
+},{"./angular-aria":8}],10:[function(require,module,exports){
 /*!
  * Angular Material Design
  * https://github.com/angular/material
@@ -27181,7 +27239,7 @@ angular.module("material.core").constant("$MD_THEME_CSS", "md-autocomplete.md-TH
 
 
 })(window, window.angular);
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 // Should already be required, here for clarity
 require('angular');
 
@@ -27195,7 +27253,7 @@ require('./angular-material');
 // Export namespace
 module.exports = 'ngMaterial';
 
-},{"./angular-material":9,"angular":13,"angular-animate":6,"angular-aria":8}],11:[function(require,module,exports){
+},{"./angular-material":10,"angular":14,"angular-animate":7,"angular-aria":9}],12:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -31566,7 +31624,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -60471,11 +60529,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":12}],14:[function(require,module,exports){
+},{"./angular":13}],15:[function(require,module,exports){
 /*
  The MIT License (MIT)
 
@@ -61606,11 +61664,11 @@ module.exports = angular;
 
 }());
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 require('./dist/ng-sortable');
 module.exports = 'as.sortable';
 
-},{"./dist/ng-sortable":14}],16:[function(require,module,exports){
+},{"./dist/ng-sortable":15}],17:[function(require,module,exports){
 'use strict';
 
 /**

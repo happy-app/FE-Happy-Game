@@ -5,7 +5,36 @@
       </div>
   </div>
 </div>
+
+<div class="leaderboard">
+  <h2>HTML Superheroes</h2>
+      <table>
+        <tr>
+          <th>Puzzle Title</th>
+          <th>Solved By</th>
+          <th>Duration</th>
+          <th>Made By</th>
+        </tr>
+
+        <tr ng-repeat="stat in leaders">
+          <td>{{stat.puzzle_title}}</td>
+          <td>{{stat.solved_by}}</td>
+          <td>{{stat.duration / 60 | number:0}} secs</td>
+          <td>{{stat.made_by}}</td>
+
+        </tr>
+
+      </table>
+
+</div>
+
+
 <a href="#/5by5"><button>5 by 5</button></a>
 <a href="#/"><button>Home</button></a>
 
-<input type="file" id="uploadCustomImage" value="Upload image">
+
+<form ng-submit="addImage(obj)">
+<input type="text" placeholder="Add Twitter Handle" ng-model="obj.maker_handle">
+<input type="file" id="uploadCustomImage" value="Upload image" ng-model="obj.image_file_name">
+<button>Submit</button>
+</form>

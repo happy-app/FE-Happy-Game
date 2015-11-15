@@ -1,6 +1,27 @@
 import shuffleArray from 'shuffle-array';
 
-let GameController2by2 = function ($scope, ) {
+let GameController2by2 = function ($scope, GameService) {
+  //  Grabbing and sending Image
+  // let addImage = function (obj, img){
+  //
+  //
+	// 			HAPP.config.headers['Content-Type'] =  undefined;
+  //
+	// 				var formData = new FormData();
+	// 				formData.append('property[profile]', img);
+  //
+	// 				$http({
+	// 					headers: heroku.config.headers,
+	// 					url: HAPP.URL + 'puzzles'
+	// 					method: 'POST',
+	// 					data: formData
+	// 				});
+	// 		};
+  //  Adding LeaderBoard
+  GameService.getLeaders().then( (res) => {
+    $scope.leaders = res.data.stats;
+  });
+
 
   var i;
   $scope.itemsList = {
@@ -73,6 +94,6 @@ let GameController2by2 = function ($scope, ) {
   shuffleArray($scope.itemsList.items1);
 };
 
-GameController2by2.$inject = ['$scope'];
+GameController2by2.$inject = ['$scope', 'GameService'];
 
 export default GameController2by2;

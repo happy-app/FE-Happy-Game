@@ -34,7 +34,7 @@ body {
     position: absolute;
     width: 200px;
 	  height:200px;
-    background-position: 0 100%;
+    background-position: 100% 100%;
     background-size: 200% 200%;
 }
 .ppiece1 {
@@ -48,7 +48,7 @@ body {
     position: absolute;
     width: 200px;
 	  height:200px;
-    background-position: 100% 100%;
+    background-position: 0 100%;
     background-size: 200% 200%;
 }
 //
@@ -62,8 +62,8 @@ body {
 
 .as-sortable-item,
 .as-sortable-placeholder {
-  @include span-columns(3);
-  @include omega(3n);
+  @include span-columns(4);
+  @include omega(4n);
   @include media($mobile) {
     @include span-columns(3);
     @include omega(3n);
@@ -84,5 +84,5 @@ body {
       width: 90%;
     }
     margin: 0 auto;
-    width: 600px;
+    width: 400px;
 }

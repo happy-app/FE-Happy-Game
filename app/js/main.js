@@ -26,11 +26,18 @@ exports['default'] = config;
 module.exports = exports['default'];
 
 },{}],2:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _shuffleArray = require('shuffle-array');
+
+var _shuffleArray2 = _interopRequireDefault(_shuffleArray);
+
 var GameController = function GameController($scope) {
 
   var i;
@@ -38,25 +45,78 @@ var GameController = function GameController($scope) {
     items1: []
   };
 
+  document.querySelector("#uploadCustomImage").addEventListener("change", function () {
+    if (!this.value || !this.files || !this.files[0]) {
+      return;
+    }
+    var reader = new FileReader();
+
+    // image loaded
+    reader.onload = function (event) {
+      var dataUri = reader.result;
+      var elms = document.querySelectorAll("[data-id]");
+
+      for (var i = 0; i < elms.length; ++i) {
+        elms[i].style.backgroundImage = "url(" + dataUri + ")";
+      }
+    };
+
+    // error
+    reader.onerror = function (event) {
+      alert("Failed to upload the image.");
+    };
+
+    // data://......long string....
+    reader.readAsDataURL(this.files[0]);
+  });
+
+  // 1. Fetch the image
+  // 2. Split it
+  // 3. Randomize
+  // 4. Let the user solve the game
+  //   afterdrag:  Check the state
+  //          --->  Show the winner
+
+  function checkGameOver() {
+    var elms = document.querySelectorAll("[data-id]");
+
+    // data-id=1
+    // data-id=2
+    // data-id=3
+    // data-id=4
+
+    for (var i = 1; i < elms.length; ++i) {
+      if (parseInt(elms[i].getAttribute("data-id")) < parseInt(elms[i - 1].getAttribute("data-id"))) {
+        return;
+      }
+    }
+
+    alert("You are the best!");
+  }
+
   for (i = 0; i <= 3; i += 1) {
-    $scope.itemsList.items1.push({ 'Id': 'ppiece' + i });
+    $scope.itemsList.items1.push({ Id: 'ppiece' + i, _id: i });
   }
 
   $scope.sortableOptions = {
     containment: '#sortable-container',
+    dragEnd: checkGameOver,
     //restrict move across columns. move only within column.
     accept: function accept(sourceItemHandleScope, destSortableScope) {
+      console.log("accept", new Date());
       return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
     }
   };
+
+  (0, _shuffleArray2["default"])($scope.itemsList.items1);
 };
 
 GameController.$inject = ['$scope'];
 
-exports['default'] = GameController;
-module.exports = exports['default'];
+exports["default"] = GameController;
+module.exports = exports["default"];
 
-},{}],3:[function(require,module,exports){
+},{"shuffle-array":15}],3:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -61451,7 +61511,91 @@ module.exports = angular;
 require('./dist/ng-sortable');
 module.exports = 'as.sortable';
 
-},{"./dist/ng-sortable":13}]},{},[3])
+},{"./dist/ng-sortable":13}],15:[function(require,module,exports){
+'use strict';
+
+/**
+ * Randomize the order of the elements in a given array.
+ * @param {Array} arr - The given array.
+ * @param {Object} [options] - Optional configuration options.
+ * @param {Boolean} [options.copy] - Sets if should return a shuffled copy of the given array. By default it's a falsy value.
+ * @param {Function} [options.rng] - Specifies a custom random number generator.
+ * @returns {Array}
+ */
+function shuffle(arr, options) {
+
+  if (!Array.isArray(arr)) {
+    throw new Error('shuffle expect an array as parameter.');
+  }
+
+  options = options || {};
+
+  var collection = arr,
+      len = arr.length,
+      rng = options.rng || Math.random,
+      random,
+      temp;
+
+  if (options.copy === true) {
+    collection = arr.slice();
+  }
+
+  while (len) {
+    random = Math.floor(rng() * len);
+    len -= 1;
+    temp = collection[len];
+    collection[len] = collection[random];
+    collection[random] = temp;
+  }
+
+  return collection;
+};
+
+/**
+ * Pick one or more random elements from the given array.
+ * @param {Array} arr - The given array.
+ * @param {Object} [options] - Optional configuration options.
+ * @param {Number} [options.picks] - Specifies how many random elements you want to pick. By default it picks 1.
+ * @param {Function} [options.rng] - Specifies a custom random number generator.
+ * @returns {Object}
+ */
+shuffle.pick = function(arr, options) {
+
+  if (!Array.isArray(arr)) {
+    throw new Error('shuffle.pick() expect an array as parameter.');
+  }
+
+  options = options || {};
+
+  var rng = options.rng || Math.random,
+      picks = options.picks || 1;
+
+  if (typeof picks === 'number' && picks !== 1) {
+    var len = arr.length,
+        collection = arr.slice(),
+        random = [],
+        index;
+
+    while (picks) {
+      index = Math.floor(rng() * len);
+      random.push(collection[index]);
+      collection.splice(index, 1);
+      len -= 1;
+      picks -= 1;
+    }
+
+    return random;
+  }
+
+  return arr[Math.floor(rng() * arr.length)];
+};
+
+/**
+ * Expose
+ */
+module.exports = shuffle;
+
+},{}]},{},[3])
 
 
 //# sourceMappingURL=main.js.map

@@ -23,7 +23,7 @@ body {
   position: absolute;
   width: 200px;
   height: 200px;
-  background-position: 0 100%;
+  background-position: 100% 100%;
   background-size: 200% 200%; }
 
 .ppiece1 {
@@ -37,7 +37,7 @@ body {
   position: absolute;
   width: 200px;
   height: 200px;
-  background-position: 100% 100%;
+  background-position: 0 100%;
   background-size: 200% 200%; }
 
 .as-sortable-item,
@@ -45,18 +45,18 @@ body {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%;
+  width: 31.76157%;
   width: 200px;
   height: 200px;
   margin: 0; }
   .as-sortable-item:last-child,
   .as-sortable-placeholder:last-child {
     margin-right: 0; }
-  .as-sortable-item:nth-child(3n),
-  .as-sortable-placeholder:nth-child(3n) {
+  .as-sortable-item:nth-child(4n),
+  .as-sortable-placeholder:nth-child(4n) {
     margin-right: 0; }
-  .as-sortable-item:nth-child(3n+1),
-  .as-sortable-placeholder:nth-child(3n+1) {
+  .as-sortable-item:nth-child(4n+1),
+  .as-sortable-placeholder:nth-child(4n+1) {
     clear: left; }
   @media screen and (max-width: 600px) {
     .as-sortable-item,
@@ -83,7 +83,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin: 0 auto;
-  width: 600px; }
+  width: 400px; }
   #sortable-container::after {
     clear: both;
     content: "";

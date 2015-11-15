@@ -3,6 +3,7 @@
 
 @import 'bourbon';
 @import 'neat';
+@import 'foundation';
 $mobile: new-breakpoint(max-width 600px 4);
 
 
@@ -21,6 +22,10 @@ body {
 // }
 //
 
+input {
+  padding-top: 50px;
+}
+
 .ppiece0 {
     position: absolute;
     cursor: move;
@@ -29,6 +34,13 @@ body {
     background-position: 0 0;
     background-size: 200% 200%;
     margin: 0;
+    @include media($mobile) {
+      width: 100px;
+      height: 100px;
+      background-position: 0 0;
+      background-size: 200% 200%;
+
+    }
 }
 .ppiece3 {
     position: absolute;
@@ -36,6 +48,13 @@ body {
 	  height:200px;
     background-position: 100% 100%;
     background-size: 200% 200%;
+    @include media($mobile) {
+      width: 100px;
+      height: 100px;
+      background-position: 100% 100%;
+      background-size: 200% 200%;
+
+    }
 }
 .ppiece1 {
     position: absolute;
@@ -43,6 +62,12 @@ body {
 	  height:200px;
     background-position: 100% 0;
     background-size: 200% 200%;
+    @include media($mobile) {
+      width: 100px;
+      height: 100px;
+      background-position: 100% 0;
+      background-size: 200% 200%;
+    }
 }
 .ppiece2 {
     position: absolute;
@@ -50,6 +75,12 @@ body {
 	  height:200px;
     background-position: 0 100%;
     background-size: 200% 200%;
+    @include media($mobile) {
+      width: 100px;
+      height: 100px;
+      background-position: 0 100%;
+      background-size: 200% 200%;
+    }
 }
 //
 // .container {
@@ -65,8 +96,6 @@ body {
   @include span-columns(4);
   @include omega(4n);
   @include media($mobile) {
-    @include span-columns(3);
-    @include omega(3n);
     width: 100px;
     height: 100px;
     margin: 0 auto;
@@ -79,10 +108,34 @@ body {
 
 #sortable-container {
     @include outer-container;
-    @include media($mobile) {
-      margin: 0 12%;
-      width: 90%;
-    }
     margin: 0 auto;
     width: 400px;
+    @include media($mobile) {
+      width: 200px;
+      margin: 0 auto;
+    }
+}
+
+//
+
+#uploadCustomImage::-webkit-file-upload-button {
+  position: relative;
+	padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+	border-radius: 10px;
+	font-family: 'Pacifico', cursive;
+	font-size: 25px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+#uploadCustomImage::-webkit-file-upload-button:hover {
+color: blue;
+}
+
+md-icon {
+  img {
+    padding-bottom: 30px;
+  }
 }

@@ -70,13 +70,6 @@ var GameController = function GameController($scope) {
     reader.readAsDataURL(this.files[0]);
   });
 
-  // 1. Fetch the image
-  // 2. Split it
-  // 3. Randomize
-  // 4. Let the user solve the game
-  //   afterdrag:  Check the state
-  //          --->  Show the winner
-
   function checkGameOver() {
     var elms = document.querySelectorAll("[data-id]");
 

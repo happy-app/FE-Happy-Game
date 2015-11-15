@@ -18,8 +18,9 @@ import GameController5by5 from './controllers/gamecontroller5by5';
 
 
 angular
-.module('app', ['ui.router', 'ngMaterial', 'as.sortable'])
+.module('app', ['ui.router', 'as.sortable'])
 .config(config)
+
 .controller('GameController2by2', GameController2by2)
 .controller('GameController5by5', GameController5by5)
 ;

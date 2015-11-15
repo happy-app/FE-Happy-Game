@@ -7,13 +7,13 @@ Object.defineProperty(exports, '__esModule', {
 var config = function config($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
-  $stateProvider.state('root', {
+  $stateProvider.state('home', {
+    url: '/',
+    // controller: 'HomeController',
+    templateUrl: 'templates/home.tpl.html'
+  }).state('root', {
     abstract: true,
     templateUrl: 'templates/layout.tpl.html'
-  }).state('root.home', {
-    url: '/',
-    // controller: 'GameController1',
-    templateUrl: 'templates/home.tpl.html'
   }).state('root.game2', {
     url: '/2by2',
     controller: 'GameController2by2',
@@ -246,7 +246,7 @@ var _controllersGamecontroller5by5 = require('./controllers/gamecontroller5by5')
 
 var _controllersGamecontroller5by52 = _interopRequireDefault(_controllersGamecontroller5by5);
 
-_angular2['default'].module('app', ['ui.router', 'ngMaterial', 'as.sortable']).config(_config2['default']).controller('GameController2by2', _controllersGamecontroller2by22['default']).controller('GameController5by5', _controllersGamecontroller5by52['default']);
+_angular2['default'].module('app', ['ui.router', 'as.sortable']).config(_config2['default']).controller('GameController2by2', _controllersGamecontroller2by22['default']).controller('GameController5by5', _controllersGamecontroller5by52['default']);
 
 },{"./config":1,"./controllers/gamecontroller2by2":2,"./controllers/gamecontroller5by5":3,"angular":13,"angular-animate":6,"angular-aria":8,"angular-material":10,"angular-ui-router":11,"ng-sortable":15}],5:[function(require,module,exports){
 /**

@@ -2,14 +2,15 @@ let config = function ($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
   $stateProvider
+    
+    .state('home', {
+      url: '/',
+      // controller: 'HomeController',
+      templateUrl: 'templates/home.tpl.html'
+    })
     .state('root', {
       abstract: true,
       templateUrl: 'templates/layout.tpl.html'
-    })
-    .state('root.home', {
-      url: '/',
-      // controller: 'GameController1',
-      templateUrl: 'templates/home.tpl.html'
     })
     .state('root.game2', {
       url: '/2by2',

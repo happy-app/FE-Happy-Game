@@ -3,15 +3,73 @@
 
 @import 'bourbon';
 @import 'neat';
+@import 'foundation';
 $mobile: new-breakpoint(max-width 600px 4);
 
 
 body {
-  background: #e2ebf3;
+  background: white;
 }
 
-.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme  {
- color: white;
+.top-bar {
+  color: black;
+  background-color: white;
+
+  img {
+    max-height: 100%;
+  }
+
+  a {
+    color: #272822;
+  }
+}
+
+.home {
+
+  .bigLogo {
+    max-width: 50%;
+    margin:20vh auto 0 auto;
+
+    
+  }
+
+  .homeMenu {
+
+    ul {
+      list-style: none;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        color: #A7ABA9;
+        font-size: 1.2em;
+        margin: 0 2px;
+
+
+        a {
+          color: #272822;
+        }
+
+        a:hover {
+          color: #A7ABA9;
+        }
+      }
+    }
+  }
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background-color: white;
+  color: #272822;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  background-color: #272822;
+  color: white;
+}
+
+.top-bar .name h1 a {
+  color: #D6882D;
 }
 
 // .blocks {
@@ -312,4 +370,7 @@ body {
         height: 200px;
         margin: 0;
     }
+}
+
+#uploadCustomImage {
 }

@@ -10,6 +10,40 @@ body {
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
   color: white; }
 
+.ppiece0 {
+  position: absolute;
+  cursor: move;
+  background: url("http://www.gannett-cdn.com/-mm-/13ffa70795774f14fe8cae0f9d8e21bb6f6ad345/c=97-0-3544-2592&r=x513&c=680x510/local/-/media/2015/01/31/USATODAY/USATODAY/635583396491961824-C01-ALMOST-14-69943048.JPG") no-repeat;
+  width: 200px;
+  height: 200px;
+  background-position: 0 0;
+  background-size: 200% 200%;
+  margin: 0; }
+
+.ppiece3 {
+  position: absolute;
+  background: url("http://www.gannett-cdn.com/-mm-/13ffa70795774f14fe8cae0f9d8e21bb6f6ad345/c=97-0-3544-2592&r=x513&c=680x510/local/-/media/2015/01/31/USATODAY/USATODAY/635583396491961824-C01-ALMOST-14-69943048.JPG") no-repeat;
+  width: 200px;
+  height: 200px;
+  background-position: 0 100%;
+  background-size: 200% 200%; }
+
+.ppiece1 {
+  position: absolute;
+  background: url("http://www.gannett-cdn.com/-mm-/13ffa70795774f14fe8cae0f9d8e21bb6f6ad345/c=97-0-3544-2592&r=x513&c=680x510/local/-/media/2015/01/31/USATODAY/USATODAY/635583396491961824-C01-ALMOST-14-69943048.JPG") no-repeat;
+  width: 200px;
+  height: 200px;
+  background-position: 100% 0;
+  background-size: 200% 200%; }
+
+.ppiece2 {
+  position: absolute;
+  background: url("http://www.gannett-cdn.com/-mm-/13ffa70795774f14fe8cae0f9d8e21bb6f6ad345/c=97-0-3544-2592&r=x513&c=680x510/local/-/media/2015/01/31/USATODAY/USATODAY/635583396491961824-C01-ALMOST-14-69943048.JPG") no-repeat;
+  width: 200px;
+  height: 200px;
+  background-position: 100% 100%;
+  background-size: 200% 200%; }
+
 .as-sortable-item,
 .as-sortable-placeholder {
   float: left;
@@ -53,7 +87,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin: 0 auto;
-  width: 650px; }
+  width: 600px; }
   #sortable-container::after {
     clear: both;
     content: "";

@@ -38,8 +38,8 @@ var GameController = function GameController($scope) {
     items1: []
   };
 
-  for (i = 0; i <= 8; i += 1) {
-    $scope.itemsList.items1.push({ 'Id': i, 'Label': 'Item ' + i });
+  for (i = 0; i <= 3; i += 1) {
+    $scope.itemsList.items1.push({ 'Id': 'ppiece' + i });
   }
 
   $scope.sortableOptions = {

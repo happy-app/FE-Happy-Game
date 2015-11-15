@@ -11,8 +11,8 @@ import 'ng-sortable';
 import config from './config';
 
 //  Controller Files
-import GameController from './controllers/gamecontroller';
-
+import GameController2by2 from './controllers/gamecontroller2by2';
+import GameController5by5 from './controllers/gamecontroller5by5';
 
 
 
@@ -20,5 +20,6 @@ import GameController from './controllers/gamecontroller';
 angular
 .module('app', ['ui.router', 'ngMaterial', 'as.sortable'])
 .config(config)
-.controller('GameController', GameController)
+.controller('GameController2by2', GameController2by2)
+.controller('GameController5by5', GameController5by5)
 ;

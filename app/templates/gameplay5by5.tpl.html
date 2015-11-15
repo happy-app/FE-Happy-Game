@@ -1,0 +1,11 @@
+<div id="sortable-container5by5">
+  <div class="sortable-row" as-sortable="sortableOptions" ng-model="itemsList.items1">
+      <div ng-repeat="item in itemsList.items1" as-sortable-item>
+          <div data-id="{{item._id}}" class="{{item.Id}}" as-sortable-item-handle ng-style="{'background-image':'url(/images/railscode.png)'}"></div>
+      </div>
+  </div>
+</div>
+<a href="#/2by2"><button>2 by 2</button></a>
+<a href="#/"><button>Home</button></a>
+
+<input type="file" id="uploadCustomImage" value="Upload image">

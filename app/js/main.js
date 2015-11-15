@@ -12,12 +12,16 @@ var config = function config($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/layout.tpl.html'
   }).state('root.home', {
     url: '/',
-    controller: 'GameController',
+    // controller: 'GameController1',
     templateUrl: 'templates/home.tpl.html'
-  }).state('root.game', {
-    url: '/game',
-    controller: 'GameController',
-    templateUrl: 'templates/gameplay.tpl.html'
+  }).state('root.game2', {
+    url: '/2by2',
+    controller: 'GameController2by2',
+    templateUrl: 'templates/gameplay2by2.tpl.html'
+  }).state('root.game5', {
+    url: '/5by5',
+    controller: 'GameController5by5',
+    templateUrl: 'templates/gameplay5by5.tpl.html'
   });
 };
 
@@ -38,7 +42,7 @@ var _shuffleArray = require('shuffle-array');
 
 var _shuffleArray2 = _interopRequireDefault(_shuffleArray);
 
-var GameController = function GameController($scope) {
+var GameController2by2 = function GameController2by2($scope) {
 
   var i;
   $scope.itemsList = {
@@ -95,11 +99,11 @@ var GameController = function GameController($scope) {
   }
 
   for (i = 0; i <= 3; i += 1) {
-    $scope.itemsList.items1.push({ Id: 'ppiece' + i, _id: i });
+    $scope.itemsList.items1.push({ Id: 'twoppiece' + i, _id: i });
   }
 
   $scope.sortableOptions = {
-    containment: '#sortable-container',
+    containment: '#sortable-container2by2',
     dragEnd: checkGameOver,
     //restrict move across columns. move only within column.
     accept: function accept(sourceItemHandleScope, destSortableScope) {
@@ -111,12 +115,103 @@ var GameController = function GameController($scope) {
   (0, _shuffleArray2["default"])($scope.itemsList.items1);
 };
 
-GameController.$inject = ['$scope'];
+GameController2by2.$inject = ['$scope'];
 
-exports["default"] = GameController;
+exports["default"] = GameController2by2;
 module.exports = exports["default"];
 
-},{"shuffle-array":15}],3:[function(require,module,exports){
+},{"shuffle-array":16}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _shuffleArray = require('shuffle-array');
+
+var _shuffleArray2 = _interopRequireDefault(_shuffleArray);
+
+var GameController5by5 = function GameController5by5($scope) {
+
+  var i;
+  $scope.itemsList = {
+    items1: []
+  };
+
+  document.querySelector("#uploadCustomImage").addEventListener("change", function () {
+    if (!this.value || !this.files || !this.files[0]) {
+      return;
+    }
+    var reader = new FileReader();
+
+    // image loaded
+    reader.onload = function (event) {
+      var dataUri = reader.result;
+      var elms = document.querySelectorAll("[data-id]");
+
+      for (var i = 0; i < elms.length; ++i) {
+        elms[i].style.backgroundImage = "url(" + dataUri + ")";
+      }
+    };
+
+    // error
+    reader.onerror = function (event) {
+      alert("Failed to upload the image.");
+    };
+
+    // data://......long string....
+    reader.readAsDataURL(this.files[0]);
+  });
+
+  // 1. Fetch the image
+  // 2. Split it
+  // 3. Randomize
+  // 4. Let the user solve the game
+  //   afterdrag:  Check the state
+  //          --->  Show the winner
+
+  function checkGameOver() {
+    var elms = document.querySelectorAll("[data-id]");
+
+    // data-id=1
+    // data-id=2
+    // data-id=3
+    // data-id=4
+
+    for (var i = 1; i < elms.length; ++i) {
+      if (parseInt(elms[i].getAttribute("data-id")) < parseInt(elms[i - 1].getAttribute("data-id"))) {
+        return;
+      }
+    }
+
+    alert("You are the best!");
+  }
+
+  for (i = 0; i <= 24; i += 1) {
+    $scope.itemsList.items1.push({ Id: 'fiveppiece' + i, _id: i });
+  }
+
+  $scope.sortableOptions = {
+    containment: '#sortable-container5by5',
+    dragEnd: checkGameOver,
+    //restrict move across columns. move only within column.
+    accept: function accept(sourceItemHandleScope, destSortableScope) {
+      console.log("accept", new Date());
+      return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
+    }
+  };
+
+  (0, _shuffleArray2["default"])($scope.itemsList.items1);
+};
+
+GameController5by5.$inject = ['$scope'];
+
+exports["default"] = GameController5by5;
+module.exports = exports["default"];
+
+},{"shuffle-array":16}],4:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -143,13 +238,17 @@ var _config2 = _interopRequireDefault(_config);
 
 //  Controller Files
 
-var _controllersGamecontroller = require('./controllers/gamecontroller');
+var _controllersGamecontroller2by2 = require('./controllers/gamecontroller2by2');
 
-var _controllersGamecontroller2 = _interopRequireDefault(_controllersGamecontroller);
+var _controllersGamecontroller2by22 = _interopRequireDefault(_controllersGamecontroller2by2);
 
-_angular2['default'].module('app', ['ui.router', 'ngMaterial', 'as.sortable']).config(_config2['default']).controller('GameController', _controllersGamecontroller2['default']);
+var _controllersGamecontroller5by5 = require('./controllers/gamecontroller5by5');
 
-},{"./config":1,"./controllers/gamecontroller":2,"angular":12,"angular-animate":5,"angular-aria":7,"angular-material":9,"angular-ui-router":10,"ng-sortable":14}],4:[function(require,module,exports){
+var _controllersGamecontroller5by52 = _interopRequireDefault(_controllersGamecontroller5by5);
+
+_angular2['default'].module('app', ['ui.router', 'ngMaterial', 'as.sortable']).config(_config2['default']).controller('GameController2by2', _controllersGamecontroller2by22['default']).controller('GameController5by5', _controllersGamecontroller5by52['default']);
+
+},{"./config":1,"./controllers/gamecontroller2by2":2,"./controllers/gamecontroller5by5":3,"angular":13,"angular-animate":6,"angular-aria":8,"angular-material":10,"angular-ui-router":11,"ng-sortable":15}],5:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -4079,11 +4178,11 @@ angular.module('ngAnimate', [])
 
 })(window, window.angular);
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 require('./angular-animate');
 module.exports = 'ngAnimate';
 
-},{"./angular-animate":4}],6:[function(require,module,exports){
+},{"./angular-animate":5}],7:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -4482,11 +4581,11 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 
 })(window, window.angular);
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 require('./angular-aria');
 module.exports = 'ngAria';
 
-},{"./angular-aria":6}],8:[function(require,module,exports){
+},{"./angular-aria":7}],9:[function(require,module,exports){
 /*!
  * Angular Material Design
  * https://github.com/angular/material
@@ -27082,7 +27181,7 @@ angular.module("material.core").constant("$MD_THEME_CSS", "md-autocomplete.md-TH
 
 
 })(window, window.angular);
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 // Should already be required, here for clarity
 require('angular');
 
@@ -27096,7 +27195,7 @@ require('./angular-material');
 // Export namespace
 module.exports = 'ngMaterial';
 
-},{"./angular-material":8,"angular":12,"angular-animate":5,"angular-aria":7}],10:[function(require,module,exports){
+},{"./angular-material":9,"angular":13,"angular-animate":6,"angular-aria":8}],11:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -31467,7 +31566,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -60372,11 +60471,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":11}],13:[function(require,module,exports){
+},{"./angular":12}],14:[function(require,module,exports){
 /*
  The MIT License (MIT)
 
@@ -61507,11 +61606,11 @@ module.exports = angular;
 
 }());
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 require('./dist/ng-sortable');
 module.exports = 'as.sortable';
 
-},{"./dist/ng-sortable":13}],15:[function(require,module,exports){
+},{"./dist/ng-sortable":14}],16:[function(require,module,exports){
 'use strict';
 
 /**
@@ -61595,7 +61694,7 @@ shuffle.pick = function(arr, options) {
  */
 module.exports = shuffle;
 
-},{}]},{},[3])
+},{}]},{},[4])
 
 
 //# sourceMappingURL=main.js.map

@@ -1,6 +1,6 @@
 import shuffleArray from 'shuffle-array';
 
-let GameController = function ($scope, ) {
+let GameController2by2 = function ($scope, ) {
 
   var i;
   $scope.itemsList = {
@@ -57,11 +57,11 @@ let GameController = function ($scope, ) {
   }
 
   for (i = 0; i <= 3; i += 1) {
-    $scope.itemsList.items1.push({ Id: 'ppiece'+i, _id:  i });
+    $scope.itemsList.items1.push({ Id: 'twoppiece'+i, _id:  i });
   }
 
   $scope.sortableOptions = {
-    containment: '#sortable-container',
+    containment: '#sortable-container2by2',
     dragEnd:  checkGameOver,
     //restrict move across columns. move only within column.
     accept: function (sourceItemHandleScope, destSortableScope) {
@@ -73,6 +73,6 @@ let GameController = function ($scope, ) {
   shuffleArray($scope.itemsList.items1);
 };
 
-GameController.$inject = ['$scope'];
+GameController2by2.$inject = ['$scope'];
 
-export default GameController;
+export default GameController2by2;

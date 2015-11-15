@@ -10,7 +10,7 @@ body {
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
   color: white; }
 
-.ppiece0 {
+.twoppiece0 {
   position: absolute;
   cursor: move;
   width: 200px;
@@ -19,78 +19,304 @@ body {
   background-size: 200% 200%;
   margin: 0; }
 
-.ppiece3 {
+.twoppiece3 {
   position: absolute;
   width: 200px;
   height: 200px;
   background-position: 100% 100%;
   background-size: 200% 200%; }
 
-.ppiece1 {
+.twoppiece1 {
   position: absolute;
   width: 200px;
   height: 200px;
   background-position: 100% 0;
   background-size: 200% 200%; }
 
-.ppiece2 {
+.twoppiece2 {
   position: absolute;
   width: 200px;
   height: 200px;
   background-position: 0 100%;
   background-size: 200% 200%; }
 
-.as-sortable-item,
-.as-sortable-placeholder {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 31.76157%;
-  width: 200px;
-  height: 200px;
-  margin: 0; }
-  .as-sortable-item:last-child,
-  .as-sortable-placeholder:last-child {
-    margin-right: 0; }
-  .as-sortable-item:nth-child(4n),
-  .as-sortable-placeholder:nth-child(4n) {
-    margin-right: 0; }
-  .as-sortable-item:nth-child(4n+1),
-  .as-sortable-placeholder:nth-child(4n+1) {
-    clear: left; }
-  @media screen and (max-width: 600px) {
-    .as-sortable-item,
-    .as-sortable-placeholder {
-      float: left;
-      display: block;
-      margin-right: 7.42297%;
-      width: 73.14426%;
-      width: 100px;
-      height: 100px;
-      margin: 0 auto; }
-      .as-sortable-item:last-child,
-      .as-sortable-placeholder:last-child {
-        margin-right: 0; }
-      .as-sortable-item:nth-child(3n),
-      .as-sortable-placeholder:nth-child(3n) {
-        margin-right: 0; }
-      .as-sortable-item:nth-child(3n+1),
-      .as-sortable-placeholder:nth-child(3n+1) {
-        clear: left; } }
+.fiveppiece0 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 0 0;
+  background-size: 500% 500%; }
 
-#sortable-container {
+.fiveppiece1 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 25% 0;
+  background-size: 500% 500%; }
+
+.fiveppiece2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 50% 0;
+  background-size: 500% 500%; }
+
+.fiveppiece3 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 75% 0;
+  background-size: 500% 500%; }
+
+.fiveppiece4 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 100% 0;
+  background-size: 500% 500%; }
+
+.fiveppiece5 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 0 25%;
+  background-size: 500% 500%; }
+
+.fiveppiece6 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 25% 25%;
+  background-size: 500% 500%; }
+
+.fiveppiece7 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 50% 25%;
+  background-size: 500% 500%; }
+
+.fiveppiece8 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 75% 25%;
+  background-size: 500% 500%; }
+
+.fiveppiece9 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 100% 25%;
+  background-size: 500% 500%; }
+
+.fiveppiece10 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 0 50%;
+  background-size: 500% 500%; }
+
+.fiveppiece11 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 25% 50%;
+  background-size: 500% 500%; }
+
+.fiveppiece12 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 50% 50%;
+  background-size: 500% 500%; }
+
+.fiveppiece13 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 75% 50%;
+  background-size: 500% 500%; }
+
+.fiveppiece14 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 100% 50%;
+  background-size: 500% 500%; }
+
+.fiveppiece15 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 0 75%;
+  background-size: 500% 500%; }
+
+.fiveppiece16 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 25% 75%;
+  background-size: 500% 500%; }
+
+.fiveppiece17 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 50% 75%;
+  background-size: 500% 500%; }
+
+.fiveppiece18 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 75% 75%;
+  background-size: 500% 500%; }
+
+.fiveppiece19 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 100% 75%;
+  background-size: 500% 500%; }
+
+.fiveppiece20 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 0 100%;
+  background-size: 500% 500%; }
+
+.fiveppiece21 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 25% 100%;
+  background-size: 500% 500%; }
+
+.fiveppiece22 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 50% 100%;
+  background-size: 500% 500%; }
+
+.fiveppiece23 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 75% 100%;
+  background-size: 500% 500%; }
+
+.fiveppiece24 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-position: 100% 100%;
+  background-size: 500% 500%; }
+
+#sortable-container5by5 {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
   margin: 0 auto;
-  width: 400px; }
-  #sortable-container::after {
+  width: 550px; }
+  #sortable-container5by5::after {
     clear: both;
     content: "";
     display: table; }
   @media screen and (max-width: 600px) {
-    #sortable-container {
+    #sortable-container5by5 {
       margin: 0 12%;
       width: 90%; } }
+  #sortable-container5by5 .as-sortable-item,
+  #sortable-container5by5 .as-sortable-placeholder {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 40.29137%;
+    width: 100px;
+    height: 100px;
+    margin: 0; }
+    #sortable-container5by5 .as-sortable-item:last-child,
+    #sortable-container5by5 .as-sortable-placeholder:last-child {
+      margin-right: 0; }
+    #sortable-container5by5 .as-sortable-item:nth-child(5n),
+    #sortable-container5by5 .as-sortable-placeholder:nth-child(5n) {
+      margin-right: 0; }
+    #sortable-container5by5 .as-sortable-item:nth-child(5n+1),
+    #sortable-container5by5 .as-sortable-placeholder:nth-child(5n+1) {
+      clear: left; }
+    @media screen and (max-width: 600px) {
+      #sortable-container5by5 .as-sortable-item,
+      #sortable-container5by5 .as-sortable-placeholder {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 73.14426%;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto; }
+        #sortable-container5by5 .as-sortable-item:last-child,
+        #sortable-container5by5 .as-sortable-placeholder:last-child {
+          margin-right: 0; }
+        #sortable-container5by5 .as-sortable-item:nth-child(3n),
+        #sortable-container5by5 .as-sortable-placeholder:nth-child(3n) {
+          margin-right: 0; }
+        #sortable-container5by5 .as-sortable-item:nth-child(3n+1),
+        #sortable-container5by5 .as-sortable-placeholder:nth-child(3n+1) {
+          clear: left; } }
+
+#sortable-container2by2 {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0 auto;
+  width: 550px; }
+  #sortable-container2by2::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (max-width: 600px) {
+    #sortable-container2by2 {
+      margin: 0 12%;
+      width: 90%; } }
+  #sortable-container2by2 .as-sortable-item,
+  #sortable-container2by2 .as-sortable-placeholder {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 40.29137%;
+    width: 200px;
+    height: 200px;
+    margin: 0; }
+    #sortable-container2by2 .as-sortable-item:last-child,
+    #sortable-container2by2 .as-sortable-placeholder:last-child {
+      margin-right: 0; }
+    #sortable-container2by2 .as-sortable-item:nth-child(5n),
+    #sortable-container2by2 .as-sortable-placeholder:nth-child(5n) {
+      margin-right: 0; }
+    #sortable-container2by2 .as-sortable-item:nth-child(5n+1),
+    #sortable-container2by2 .as-sortable-placeholder:nth-child(5n+1) {
+      clear: left; }
+    @media screen and (max-width: 600px) {
+      #sortable-container2by2 .as-sortable-item,
+      #sortable-container2by2 .as-sortable-placeholder {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 73.14426%;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto; }
+        #sortable-container2by2 .as-sortable-item:last-child,
+        #sortable-container2by2 .as-sortable-placeholder:last-child {
+          margin-right: 0; }
+        #sortable-container2by2 .as-sortable-item:nth-child(3n),
+        #sortable-container2by2 .as-sortable-placeholder:nth-child(3n) {
+          margin-right: 0; }
+        #sortable-container2by2 .as-sortable-item:nth-child(3n+1),
+        #sortable-container2by2 .as-sortable-placeholder:nth-child(3n+1) {
+          clear: left; } }
 
 /*# sourceMappingURL=main.css.map */

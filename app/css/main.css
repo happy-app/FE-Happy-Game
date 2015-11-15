@@ -1,7 +1,96 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 body {
   background: #e2ebf3; }
 
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
   color: white; }
+
+.ppiece0 {
+  position: absolute;
+  cursor: move;
+  width: 200px;
+  height: 200px;
+  background-position: 0 0;
+  background-size: 200% 200%;
+  margin: 0; }
+
+.ppiece3 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-position: 100% 100%;
+  background-size: 200% 200%; }
+
+.ppiece1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-position: 100% 0;
+  background-size: 200% 200%; }
+
+.ppiece2 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-position: 0 100%;
+  background-size: 200% 200%; }
+
+.as-sortable-item,
+.as-sortable-placeholder {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  width: 200px;
+  height: 200px;
+  margin: 0; }
+  .as-sortable-item:last-child,
+  .as-sortable-placeholder:last-child {
+    margin-right: 0; }
+  .as-sortable-item:nth-child(4n),
+  .as-sortable-placeholder:nth-child(4n) {
+    margin-right: 0; }
+  .as-sortable-item:nth-child(4n+1),
+  .as-sortable-placeholder:nth-child(4n+1) {
+    clear: left; }
+  @media screen and (max-width: 600px) {
+    .as-sortable-item,
+    .as-sortable-placeholder {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 73.14426%;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto; }
+      .as-sortable-item:last-child,
+      .as-sortable-placeholder:last-child {
+        margin-right: 0; }
+      .as-sortable-item:nth-child(3n),
+      .as-sortable-placeholder:nth-child(3n) {
+        margin-right: 0; }
+      .as-sortable-item:nth-child(3n+1),
+      .as-sortable-placeholder:nth-child(3n+1) {
+        clear: left; } }
+
+#sortable-container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0 auto;
+  width: 400px; }
+  #sortable-container::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (max-width: 600px) {
+    #sortable-container {
+      margin: 0 12%;
+      width: 90%; } }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,10 +1,88 @@
 // Put any @imports here
 // See Readme for a list of supported ones
 
+@import 'bourbon';
+@import 'neat';
+$mobile: new-breakpoint(max-width 600px 4);
+
+
 body {
   background: #e2ebf3;
 }
 
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme  {
  color: white;
+}
+
+// .blocks {
+//   div {
+//     border: 1px solid red;
+//   }
+// }
+//
+
+.ppiece0 {
+    position: absolute;
+    cursor: move;
+    width: 200px;
+	  height: 200px;
+    background-position: 0 0;
+    background-size: 200% 200%;
+    margin: 0;
+}
+.ppiece3 {
+    position: absolute;
+    width: 200px;
+	  height:200px;
+    background-position: 100% 100%;
+    background-size: 200% 200%;
+}
+.ppiece1 {
+    position: absolute;
+    width: 200px;
+	  height:200px;
+    background-position: 100% 0;
+    background-size: 200% 200%;
+}
+.ppiece2 {
+    position: absolute;
+    width: 200px;
+	  height:200px;
+    background-position: 0 100%;
+    background-size: 200% 200%;
+}
+//
+// .container {
+//   position: relative;
+//   width: 1000px;
+//   height: 400px;
+//   background: red;
+//   margin: 0 auto;
+// }
+
+.as-sortable-item,
+.as-sortable-placeholder {
+  @include span-columns(4);
+  @include omega(4n);
+  @include media($mobile) {
+    @include span-columns(3);
+    @include omega(3n);
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+    width: 200px;
+    height: 200px;
+    margin: 0;
+}
+
+
+#sortable-container {
+    @include outer-container;
+    @include media($mobile) {
+      margin: 0 12%;
+      width: 90%;
+    }
+    margin: 0 auto;
+    width: 400px;
 }

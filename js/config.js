@@ -8,6 +8,7 @@ let config = function ($stateProvider, $urlRouterProvider) {
     })
     .state('root.home', {
       url: '/',
+      controller: 'GameController',
       templateUrl: 'templates/home.tpl.html'
     })
     .state('root.game', {
